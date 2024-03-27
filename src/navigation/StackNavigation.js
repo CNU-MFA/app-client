@@ -4,6 +4,7 @@ import HomeScreen from '../screens/HomeScreen'
 import AddDeviceScreen from '../screens/AddDeviceScreen'
 import AthenticationScreen from '../screens/AthenticationScreen'
 import OTPAthenticationScreen from '../screens/OTPAthenticationScreen'
+import SuccessScreen from '../screens/SuccessScreen'
 
 const Stack = createStackNavigator()
 
@@ -18,6 +19,7 @@ const StackNavigation = () => {
           name="OTPAthentication"
           component={OTPAthenticationScreen}
         />
+        <Stack.Screen name="Success" component={SuccessScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )
