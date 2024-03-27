@@ -5,6 +5,7 @@ import AddDeviceScreen from '../screens/AddDeviceScreen'
 import AthenticationScreen from '../screens/AthenticationScreen'
 import OTPAthenticationScreen from '../screens/OTPAthenticationScreen'
 import SuccessScreen from '../screens/SuccessScreen'
+import BiometricAthenticationScreen from '../screens/BiometricAthenticationScreen'
 
 const Stack = createStackNavigator()
 
@@ -18,6 +19,10 @@ const StackNavigation = () => {
         <Stack.Screen
           name="OTPAthentication"
           component={OTPAthenticationScreen}
+        />
+        <Stack.Screen
+          name="BiometricAthentication"
+          component={BiometricAthenticationScreen}
         />
         <Stack.Screen name="Success" component={SuccessScreen} />
       </Stack.Navigator>
