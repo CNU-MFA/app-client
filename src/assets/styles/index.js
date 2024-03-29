@@ -1,7 +1,4 @@
-import {
-  
-  StyleSheet,
-} from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,7 +8,7 @@ export const styles = StyleSheet.create({
     marginTop: 100,
   },
   header: {
-    flex: 3,
+    flex: 2,
   },
   title: {
     fontSize: 36,
@@ -40,21 +37,16 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
-  btnConatiner: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 122,
-    height: 40,
-    borderRadius: 30,
-    backgroundColor: 'rgb(52, 152, 219)',
-  },
-  btnText: {
-    fontSize: 16,
-    color: 'white',
+  OTPCode: {
+    fontSize: 42,
     fontWeight: '700',
+    textAlign: 'center',
+  },
+  innerContainer: {
+    flex: 8,
+  },
+  description: {
+    fontSize: 20,
+    textAlign: 'center',
   },
 })
