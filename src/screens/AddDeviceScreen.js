@@ -3,7 +3,8 @@ import { Text, View, TouchableOpacity } from 'react-native'
 import { ADD_DEVICE } from '../constants/AddDevice'
 import { generateOTPCode } from '../utils/generateOTPCode'
 import { useNavigation } from '@react-navigation/native'
-useNavigation
+import { styles } from '../assets/styles'
+import Header from '../components/Header'
 
 const AddDeviceScreen = () => {
   const navigation = useNavigation()
@@ -14,8 +15,8 @@ const AddDeviceScreen = () => {
   }, [])
 
   return (
-    <View>
-      <Text>{ADD_DEVICE.TITLE}</Text>
+    <View style={styles.container}>
+      <Header text={ADD_DEVICE.TITLE} />
       <Text>{OTPCode}</Text>
       <Text>{ADD_DEVICE.DESCRIPTION}</Text>
       <TouchableOpacity

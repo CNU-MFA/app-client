@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { styles } from '../assets/styles'
 import Input from '../components/Input'
 import { ERROR } from '../constants/Error'
+import Header from '../components/Header'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
@@ -32,9 +33,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{HOME.TITLE}</Text>
-      </View>
+      <Header text={HOME.TITLE} />
       <View style={styles.form}>
         <View style={styles.inputForm}>
           <Input
