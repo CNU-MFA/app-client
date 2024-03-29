@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import { ATHENTICATION } from '../constants/athentication'
 import AthenticationButton from '../components/AthenticationButton'
-import Header from '../components/Header'
+import Header from '../components/common/Header'
 import { styles } from '../assets/styles'
 import { NAVIGATION } from '../constants/navigation'
 

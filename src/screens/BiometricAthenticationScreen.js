@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import { BIOMETRIC_ATHENTICATION } from '../constants/biometricAthentication'
 import { useNavigation } from '@react-navigation/native'
-import Header from '../components/Header'
+import Header from '../components/common/Header'
 import { styles } from '../assets/styles/index'
 
 const BiometricAthenticationScreen = () => {

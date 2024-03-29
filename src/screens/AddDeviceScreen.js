@@ -4,8 +4,8 @@ import { ADD_DEVICE } from '../constants/addDevice'
 import { generateOTPCode } from '../utils/generateOTPCode'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from '../assets/styles'
-import Header from '../components/Header'
-import Button from '../components/Button'
+import Header from '../components/common/Header'
+import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
 
 const AddDeviceScreen = () => {
@@ -25,7 +25,7 @@ const AddDeviceScreen = () => {
       <Header text={ADD_DEVICE.TITLE} />
       <View style={styles.innerContainer}>
         <View style={addDeviceStyles.OTPCodeContainer}>
-          <Text style={styles.OTPCode}>{OTPCode}</Text>
+          <Text style={addDeviceStyles.OTPCode}>{OTPCode}</Text>
         </View>
         <View style={addDeviceStyles.descriptionContainer}>
           <Text style={styles.description}>{ADD_DEVICE.DESCRIPTION}</Text>
@@ -41,6 +41,11 @@ export default AddDeviceScreen
 const addDeviceStyles = StyleSheet.create({
   OTPCodeContainer: {
     marginBottom: 42,
+  },
+  OTPCode: {
+    fontSize: 42,
+    fontWeight: '700',
+    textAlign: 'center',
   },
   descriptionContainer: {
     marginBottom: 38,

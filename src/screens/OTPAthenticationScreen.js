@@ -2,11 +2,11 @@ import { View, Text, StyleSheet } from 'react-native'
 import { OTP_ATHENTICATION } from '../constants/OTPAthentication'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from '../assets/styles/index'
-import Header from '../components/Header'
+import Header from '../components/common/Header'
 import { useState } from 'react'
-import Input from '../components/Input'
+import Input from '../components/common/Input'
 import { NAVIGATION } from '../constants/navigation'
-import Button from '../components/Button'
+import Button from '../components/common/Button'
 
 const OTPAthentication = () => {
   const [inputOTP, setInputOTP] = useState('')

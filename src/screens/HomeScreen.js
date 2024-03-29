@@ -1,12 +1,12 @@
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { HOME } from '../constants/home'
 import { useState } from 'react'
 import { styles } from '../assets/styles'
-import Input from '../components/Input'
+import Input from '../components/common/Input'
 import { ERROR } from '../constants/error'
-import Header from '../components/Header'
-import Button from '../components/Button'
+import Header from '../components/common/Header'
+import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
 
 const HomeScreen = () => {
@@ -36,8 +36,8 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Header text={HOME.TITLE} />
-      <View style={styles.form}>
-        <View style={styles.inputForm}>
+      <View style={homeStyles.form}>
+        <View style={homeStyles.inputForm}>
           <Input
             label={HOME.USER_ID}
             placeholder={HOME.USER_ID_PLACEHOLDER}
@@ -45,7 +45,7 @@ const HomeScreen = () => {
             onChangeText={onChangeUserId}
           />
         </View>
-        <View style={styles.inputForm}>
+        <View style={homeStyles.inputForm}>
           <Input
             label={HOME.PASSWORD}
             secureTextEntry
@@ -61,3 +61,12 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen
+
+const homeStyles = StyleSheet.create({
+  form: {
+    flex: 7,
+  },
+  inputForm: {
+    marginBottom: 34,
+  },
+})
