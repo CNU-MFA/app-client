@@ -34,7 +34,6 @@ const OTPAthentication = () => {
               placeholder={OTP_ATHENTICATION.OTP_PLACEHOLDER}
             />
           </View>
-
           <Button
             size={100}
             onPress={onPress}
