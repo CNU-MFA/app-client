@@ -1,9 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { HOME } from '../constants/Home'
 import { useState } from 'react'
 import { styles } from '../assets/styles'
 import Input from '../components/Input'
+import { ERROR } from '../constants/Error'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
@@ -25,7 +26,7 @@ const HomeScreen = () => {
     if (user.id !== '' && user.password !== '') {
       navigation.navigate('AddDevice', { screen: 'AddDevice' })
     } else {
-      alert('모든 정보를 입력해주세요.')
+      alert(ERROR.LOGIN_PROMPT_MESSAGE)
     }
   }
 
