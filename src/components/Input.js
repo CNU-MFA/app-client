@@ -2,6 +2,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native'
 
 const Input = ({
   label,
+  keyboardType,
   secureTextEntry,
   onChangeText,
   value,
@@ -10,10 +11,11 @@ const Input = ({
 }) => {
   return (
     <View {...props}>
-      <Text style={InputStyles.label}>{label}</Text>
+      {label && <Text style={InputStyles.label}>{label}</Text>}
       <TextInput
         secureTextEntry={secureTextEntry}
         autoCapitalize="none"
+        keyboardType={keyboardType}
         onChangeText={onChangeText}
         value={value}
         style={InputStyles.input}
