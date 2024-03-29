@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { HOME } from '../constants/home'
 import { useState } from 'react'
@@ -7,6 +7,7 @@ import Input from '../components/Input'
 import { ERROR } from '../constants/error'
 import Header from '../components/Header'
 import Button from '../components/Button'
+import { NAVIGATION } from '../constants/navigation'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
@@ -26,10 +27,10 @@ const HomeScreen = () => {
 
   const onPress = () => {
     if (user.id !== '' && user.password !== '') {
-      navigation.navigate('AddDevice', { screen: 'AddDevice' })
-    } else {
-      alert(ERROR.LOGIN_PROMPT_MESSAGE)
+      navigation.navigate(NAVIGATION.ADD_DEVICE)
+      return
     }
+    alert(ERROR.LOGIN_PROMPT_MESSAGE)
   }
 
   return (

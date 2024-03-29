@@ -13,13 +13,7 @@ const OTPAthentication = () => {
       <View>
         <TextInput placeholder={OTP_ATHENTICATION.OTP_PLACEHOLDER} />
       </View>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('Success', {
-            screen: 'Success',
-          })
-        }
-      >
+      <TouchableOpacity onPress={() => navigation.navigate('인증 완료')}>
         <Text>{OTP_ATHENTICATION.SUBMIT}</Text>
       </TouchableOpacity>
     </View>

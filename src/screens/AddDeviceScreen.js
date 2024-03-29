@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import { ADD_DEVICE } from '../constants/addDevice'
 import { generateOTPCode } from '../utils/generateOTPCode'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from '../assets/styles'
 import Header from '../components/Header'
+import Button from '../components/Button'
+import { NAVIGATION } from '../constants/navigation'
 
 const AddDeviceScreen = () => {
   const navigation = useNavigation()
@@ -14,23 +16,21 @@ const AddDeviceScreen = () => {
     setOTPCode(generateOTPCode())
   }, [])
 
+  const onPress = () => {
+    navigation.navigate(NAVIGATION.ATHENTICATION)
+  }
+
   return (
     <View style={styles.container}>
       <Header text={ADD_DEVICE.TITLE} />
       <View style={styles.innerContainer}>
-        <View style={addDeviceStyle.OTPCodeContainer}>
+        <View style={addDeviceStyles.OTPCodeContainer}>
           <Text style={styles.OTPCode}>{OTPCode}</Text>
         </View>
-        <View style={addDeviceStyle.descriptionContainer}>
+        <View style={addDeviceStyles.descriptionContainer}>
           <Text style={styles.description}>{ADD_DEVICE.DESCRIPTION}</Text>
         </View>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Athentication', { screen: 'Athentication' })
-          }
-        >
-          <Text>{ADD_DEVICE.SUBMIT}</Text>
-        </TouchableOpacity>
+        <Button size={80} onPress={onPress} text={ADD_DEVICE.SUBMIT} />
       </View>
     </View>
   )
@@ -38,7 +38,7 @@ const AddDeviceScreen = () => {
 
 export default AddDeviceScreen
 
-const addDeviceStyle = StyleSheet.create({
+const addDeviceStyles = StyleSheet.create({
   OTPCodeContainer: {
     marginBottom: 42,
   },
