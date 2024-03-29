@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 const Button = ({ size, onPress, text, ...props }) => {
   return (
-    <View style={buttonStyles.btnConatiner} {...props}>
+    <View style={buttonStyles.btnContainer} {...props}>
       <TouchableOpacity
         style={{ ...buttonStyles.button, width: size }}
         onPress={onPress}
@@ -16,7 +16,7 @@ const Button = ({ size, onPress, text, ...props }) => {
 export default Button
 
 const buttonStyles = StyleSheet.create({
-  btnConatiner: {
+  btnContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
