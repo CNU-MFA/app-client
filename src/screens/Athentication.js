@@ -16,7 +16,7 @@ const authenticationConfig = {
   },
 }
 
-const AthenticationScreen = () => {
+const Athentication = () => {
   return (
     <View style={styles.container}>
       <Header text={ATHENTICATION.TITLE} />
@@ -36,7 +36,7 @@ const AthenticationScreen = () => {
   )
 }
 
-export default AthenticationScreen
+export default Athentication
 
 const athenticationStyles = StyleSheet.create({
   container: {

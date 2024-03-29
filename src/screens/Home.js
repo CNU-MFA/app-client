@@ -9,7 +9,7 @@ import Header from '../components/common/Header'
 import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
 
-const HomeScreen = () => {
+const Home = () => {
   const navigation = useNavigation()
 
   const [user, setUser] = useState({
@@ -60,7 +60,7 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default Home
 
 const homeStyles = StyleSheet.create({
   form: {

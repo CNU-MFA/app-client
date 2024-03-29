@@ -8,7 +8,7 @@ import Header from '../components/common/Header'
 import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
 
-const AddDeviceScreen = () => {
+const AddDevice = () => {
   const navigation = useNavigation()
   const [OTPCode, setOTPCode] = useState()
 
@@ -36,7 +36,7 @@ const AddDeviceScreen = () => {
   )
 }
 
-export default AddDeviceScreen
+export default AddDevice
 
 const addDeviceStyles = StyleSheet.create({
   OTPCodeContainer: {

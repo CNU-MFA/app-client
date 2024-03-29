@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
 
-const SuccessScreen = () => {
+const Success = () => {
   const navigation = useNavigation()
 
   const onPress = () => {
@@ -19,7 +19,7 @@ const SuccessScreen = () => {
   )
 }
 
-export default SuccessScreen
+export default Success
 
 const successStyles = StyleSheet.create({
   container: {

@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import Header from '../components/common/Header'
 import { styles } from '../assets/styles/index'
 
-const BiometricAthenticationScreen = () => {
+const BiometricAthentication = () => {
   const navigation = useNavigation()
 
   return (
@@ -14,4 +14,4 @@ const BiometricAthenticationScreen = () => {
   )
 }
 
-export default BiometricAthenticationScreen
+export default BiometricAthentication
