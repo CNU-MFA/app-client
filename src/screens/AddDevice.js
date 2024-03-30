@@ -17,7 +17,7 @@ const AddDevice = () => {
   }, [])
 
   const onPress = () => {
-    navigation.navigate(NAVIGATION.ATHENTICATION)
+    navigation.navigate(NAVIGATION.AUTHENTICATION)
   }
 
   return (

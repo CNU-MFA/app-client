@@ -1,17 +1,17 @@
 import { View } from 'react-native'
-import { BIOMETRIC_ATHENTICATION } from '../constants/biometricAthentication'
+import { BIOMETRIC_AUTHENTICATION } from '../constants/biometricAuthentication'
 import { useNavigation } from '@react-navigation/native'
 import Header from '../components/common/Header'
 import { styles } from '../assets/styles/index'
 
-const BiometricAthentication = () => {
+const BiometricAuthentication = () => {
   const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
-      <Header text={BIOMETRIC_ATHENTICATION.TITLE} />
+      <Header text={BIOMETRIC_AUTHENTICATION.TITLE} />
     </View>
   )
 }
 
-export default BiometricAthentication
+export default BiometricAuthentication

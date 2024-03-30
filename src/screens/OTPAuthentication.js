@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { OTP_ATHENTICATION } from '../constants/OTPAthentication'
+import { OTP_AUTHENTICATION } from '../constants/OTPAuthentication'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from '../assets/styles/index'
 import Header from '../components/common/Header'
@@ -8,7 +8,7 @@ import Input from '../components/common/Input'
 import { NAVIGATION } from '../constants/navigation'
 import Button from '../components/common/Button'
 
-const OTPAthentication = () => {
+const OTPAuthentication = () => {
   const [inputOTP, setInputOTP] = useState('')
   const navigation = useNavigation()
 
@@ -22,22 +22,22 @@ const OTPAthentication = () => {
 
   return (
     <View style={styles.container}>
-      <Header text={OTP_ATHENTICATION.TITLE} />
+      <Header text={OTP_AUTHENTICATION.TITLE} />
       <View style={styles.innerContainer}>
-        <Text style={styles.description}>{OTP_ATHENTICATION.DESCRIPTION}</Text>
-        <View style={OTPAthenticationStyles.container}>
-          <View style={OTPAthenticationStyles.inputContainer}>
+        <Text style={styles.description}>{OTP_AUTHENTICATION.DESCRIPTION}</Text>
+        <View style={OTPAuthenticationStyles.container}>
+          <View style={OTPAuthenticationStyles.inputContainer}>
             <Input
               keyboardType="number-pad"
               onChangeText={onChangeText}
               value={inputOTP}
-              placeholder={OTP_ATHENTICATION.OTP_PLACEHOLDER}
+              placeholder={OTP_AUTHENTICATION.OTP_PLACEHOLDER}
             />
           </View>
           <Button
             size={100}
             onPress={onPress}
-            text={OTP_ATHENTICATION.SUBMIT}
+            text={OTP_AUTHENTICATION.SUBMIT}
           />
         </View>
       </View>
@@ -45,9 +45,9 @@ const OTPAthentication = () => {
   )
 }
 
-export default OTPAthentication
+export default OTPAuthentication
 
-const OTPAthenticationStyles = StyleSheet.create({
+const OTPAuthenticationStyles = StyleSheet.create({
   container: {
     marginTop: 30,
   },

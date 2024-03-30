@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import { AntDesign, FontAwesome6, Feather } from '@expo/vector-icons'
 import { NAVIGATION } from '../constants/navigation'
 
-const AthenticationButton = ({ name, text, ...props }) => {
+const AuthenticationButton = ({ name, text, ...props }) => {
   const navigation = useNavigation()
 
   const navigateScreenHandler = () => {
@@ -11,19 +11,19 @@ const AthenticationButton = ({ name, text, ...props }) => {
   }
 
   return (
-    <View style={athenticationBtnStyles.btnContainer}>
+    <View style={authenticationBtnStyles.btnContainer}>
       <TouchableOpacity
-        style={athenticationBtnStyles.button}
+        style={authenticationBtnStyles.button}
         onPress={navigateScreenHandler}
         {...props}
       >
-        <View style={athenticationBtnStyles.btnInnerContainer}>
-          {name === NAVIGATION.OTP_ATHENTICATION ? (
+        <View style={authenticationBtnStyles.btnInnerContainer}>
+          {name === NAVIGATION.OTP_AUTHENTICATION ? (
             <AntDesign name="unlock" size={30} color="black" />
           ) : (
             <FontAwesome6 name="face-laugh" size={24} color="black" />
           )}
-          <Text style={athenticationBtnStyles.btnText}>{text}</Text>
+          <Text style={authenticationBtnStyles.btnText}>{text}</Text>
         </View>
         <Feather name="chevron-right" size={24} color="black" />
       </TouchableOpacity>
@@ -31,9 +31,9 @@ const AthenticationButton = ({ name, text, ...props }) => {
   )
 }
 
-export default AthenticationButton
+export default AuthenticationButton
 
-const athenticationBtnStyles = StyleSheet.create({
+const authenticationBtnStyles = StyleSheet.create({
   btnContainer: {
     justifyContent: 'center',
     alignItems: 'center',

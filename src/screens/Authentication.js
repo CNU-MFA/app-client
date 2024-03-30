@@ -1,30 +1,30 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { ATHENTICATION } from '../constants/athentication'
-import AthenticationButton from '../components/AthenticationButton'
+import { AUTHENTICATION } from '../constants/authentication'
+import AuthenticationButton from '../components/AuthenticationButton'
 import Header from '../components/common/Header'
 import { styles } from '../assets/styles'
 import { NAVIGATION } from '../constants/navigation'
 
 const authenticationConfig = {
   otpAuthentication: {
-    name: NAVIGATION.OTP_ATHENTICATION,
-    text: ATHENTICATION.OTP_ATHENTICATION,
+    name: NAVIGATION.OTP_AUTHENTICATION,
+    text: AUTHENTICATION.OTP_AUTHENTICATION,
   },
   biometricAuthentication: {
-    name: NAVIGATION.BIOMETRIC_ATHENTICATION,
-    text: ATHENTICATION.BIOMETRIC_ATHENTICATION,
+    name: NAVIGATION.BIOMETRIC_AUTHENTICATION,
+    text: AUTHENTICATION.BIOMETRIC_AUTHENTICATION,
   },
 }
 
-const Athentication = () => {
+const Authentication = () => {
   return (
     <View style={styles.container}>
-      <Header text={ATHENTICATION.TITLE} />
+      <Header text={AUTHENTICATION.TITLE} />
       <View style={styles.innerContainer}>
-        <Text style={styles.description}>{ATHENTICATION.DESCRIPTION}</Text>
-        <View style={athenticationStyles.container}>
+        <Text style={styles.description}>{AUTHENTICATION.DESCRIPTION}</Text>
+        <View style={authenticationStyles.container}>
           {Object.entries(authenticationConfig).map(([key, value]) => (
-            <AthenticationButton
+            <AuthenticationButton
               key={key}
               name={value.name}
               text={value.text}
@@ -36,9 +36,9 @@ const Athentication = () => {
   )
 }
 
-export default Athentication
+export default Authentication
 
-const athenticationStyles = StyleSheet.create({
+const authenticationStyles = StyleSheet.create({
   container: {
     marginTop: 50,
   },

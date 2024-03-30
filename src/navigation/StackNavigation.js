@@ -2,10 +2,10 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from '../screens/Home'
 import AddDevice from '../screens/AddDevice'
-import Athentication from '../screens/Athentication'
-import OTPAthentication from '../screens/OTPAthentication'
+import Authentication from '../screens/Authentication'
+import OTPAuthentication from '../screens/OTPAuthentication'
 import Success from '../screens/Success'
-import BiometricAthentication from '../screens/BiometricAthentication'
+import BiometricAuthentication from '../screens/BiometricAuthentication'
 import { NAVIGATION } from '../constants/navigation'
 
 const Stack = createStackNavigator()
@@ -13,9 +13,9 @@ const Stack = createStackNavigator()
 const screenConfig = {
   [NAVIGATION.LOGIN]: Home,
   [NAVIGATION.ADD_DEVICE]: AddDevice,
-  [NAVIGATION.ATHENTICATION]: Athentication,
-  [NAVIGATION.OTP_ATHENTICATION]: OTPAthentication,
-  [NAVIGATION.BIOMETRIC_ATHENTICATION]: BiometricAthentication,
+  [NAVIGATION.AUTHENTICATION]: Authentication,
+  [NAVIGATION.OTP_AUTHENTICATION]: OTPAuthentication,
+  [NAVIGATION.BIOMETRIC_AUTHENTICATION]: BiometricAuthentication,
   [NAVIGATION.SUCCESS]: Success,
 }
 

@@ -8,7 +8,7 @@ const Success = () => {
   const navigation = useNavigation()
 
   const onPress = () => {
-    navigation.navigate(NAVIGATION.ATHENTICATION)
+    navigation.navigate(NAVIGATION.AUTHENTICATION)
   }
 
   return (
