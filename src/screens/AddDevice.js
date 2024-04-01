@@ -1,23 +1,45 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { ADD_DEVICE } from '../constants/addDevice'
 import { generateOTPCode } from '../utils/generateOTPCode'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { styles } from '../assets/styles'
 import Header from '../components/common/Header'
 import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
+import API from '../api/API'
+import { ERROR } from '../constants/messages'
 
 const AddDevice = () => {
   const navigation = useNavigation()
-  const [OTPCode, setOTPCode] = useState()
+  const route = useRoute()
+  const { id, password } = route.params.state
+
+  const handleRequestSetOTP = async (otp) => {
+    await API.postSetOTP(otp)
+  }
 
   useEffect(() => {
-    setOTPCode(generateOTPCode())
+    const handleRequestOTP = async () => {
+      const otp = generateOTPCode()
+      await handleRequestSetOTP(otp)
+    }
+    handleRequestOTP()
   }, [])
 
-  const onPress = () => {
-    navigation.navigate(NAVIGATION.AUTHENTICATION)
+  const displayDeviceError = () => {
+    alert(ERROR.ADD_DEVICE_PROMPT_MESSAGE)
+  }
+
+  const handleVerifyDeviceStatus = (res) => {
+    if (res.ok)
+      navigation.navigate(NAVIGATION.AUTHENTICATION, { state: { ...user } })
+  }
+
+  const onPress = async () => {
+    const res = await API.postVerifyDeviceStatus(id, password)
+    handleVerifyDeviceStatus(res)
+    displayDeviceError()
   }
 
   return (

@@ -4,14 +4,14 @@ import { HOME } from '../constants/home'
 import { useState } from 'react'
 import { styles } from '../assets/styles'
 import Input from '../components/common/Input'
-import { ERROR } from '../constants/error'
+import { ERROR } from '../constants/messages'
 import Header from '../components/common/Header'
 import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
+import API from '../api/API'
 
 const Home = () => {
   const navigation = useNavigation()
-
   const [user, setUser] = useState({
     id: '',
     password: '',
@@ -25,12 +25,29 @@ const Home = () => {
     setUser({ ...user, password: text })
   }
 
-  const onPress = () => {
-    if (user.id !== '' && user.password !== '') {
-      navigation.navigate(NAVIGATION.ADD_DEVICE)
+  const isInputValid = () => {
+    return user.id === '' || user.password === ''
+  }
+
+  const displayLoginPrompt = () => {
+    alert(ERROR.LOGIN_PROMPT_MESSAGE)
+  }
+
+  const handleSuccessfulLogin = (res) => {
+    if (res.ok && res.deviceState) {
+      navigation.navigate(NAVIGATION.AUTHENTICATION, { state: { ...user } })
       return
     }
-    alert(ERROR.LOGIN_PROMPT_MESSAGE)
+    navigation.navigate(NAVIGATION.ADD_DEVICE, { state: { ...user } })
+  }
+
+  const onPress = async () => {
+    if (isInputValid()) {
+      displayLoginPrompt()
+      return
+    }
+    const res = await API.postLogin(user.id, user.password)
+    handleSuccessfulLogin(res)
   }
 
   return (
