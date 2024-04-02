@@ -4,6 +4,7 @@ import AuthenticationButton from '../components/AuthenticationButton'
 import Header from '../components/common/Header'
 import { styles } from '../assets/styles'
 import { NAVIGATION } from '../constants/navigation'
+import { useRoute } from '@react-navigation/native'
 
 const authenticationConfig = {
   otpAuthentication: {
