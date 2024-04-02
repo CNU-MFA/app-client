@@ -3,11 +3,11 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import { AntDesign, FontAwesome6, Feather } from '@expo/vector-icons'
 import { NAVIGATION } from '../constants/navigation'
 
-const AuthenticationButton = ({ name, text, ...props }) => {
+const AuthenticationButton = ({ name, text, user, ...props }) => {
   const navigation = useNavigation()
 
   const navigateScreenHandler = () => {
-    navigation.navigate(name)
+    navigation.navigate(name, { state: { ...user } })
   }
 
   return (

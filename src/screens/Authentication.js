@@ -17,6 +17,9 @@ const authenticationConfig = {
 }
 
 const Authentication = () => {
+  const route = useRoute()
+  const user = route.params?.state
+
   return (
     <View style={styles.container}>
       <Header text={AUTHENTICATION.TITLE} />
@@ -27,6 +30,7 @@ const Authentication = () => {
             <AuthenticationButton
               key={key}
               name={value.name}
+              user={user}
               text={value.text}
             />
           ))}

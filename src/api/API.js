@@ -32,6 +32,17 @@ const API = {
       },
     })
   },
+  postVerifyOTPAuthentication: async (id, password, inputOtp) => {
+    instance.post({
+      method: 'POST',
+      url: '/verify-otp-authentication',
+      data: {
+        id,
+        password,
+        inputOtp,
+      },
+    })
+  },
 }
 
 export default API

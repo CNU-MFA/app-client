@@ -22,7 +22,7 @@ const screenConfig = {
 const StackNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={NAVIGATION.LOGIN}>
+      <Stack.Navigator initialRouteName={NAVIGATION.ADD_DEVICE}>
         {Object.entries(screenConfig).map(([name, component]) => (
           <Stack.Screen key={name} name={name} component={component} />
         ))}

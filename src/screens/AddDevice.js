@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { ADD_DEVICE } from '../constants/addDevice'
 import { generateOTPCode } from '../utils/generateOTPCode'
@@ -13,7 +13,8 @@ import { ERROR } from '../constants/messages'
 const AddDevice = () => {
   const navigation = useNavigation()
   const route = useRoute()
-  const { id, password } = route.params.state
+  const { id, password } = route.params?.state
+  const [otp, setOtp] = useState('')
 
   const handleRequestSetOTP = async (otp) => {
     await API.postSetOTP(otp)
@@ -22,6 +23,7 @@ const AddDevice = () => {
   useEffect(() => {
     const handleRequestOTP = async () => {
       const otp = generateOTPCode()
+      setOtp(otp)
       await handleRequestSetOTP(otp)
     }
     handleRequestOTP()
@@ -47,7 +49,7 @@ const AddDevice = () => {
       <Header text={ADD_DEVICE.TITLE} />
       <View style={styles.innerContainer}>
         <View style={addDeviceStyles.OTPCodeContainer}>
-          <Text style={addDeviceStyles.OTPCode}>{OTPCode}</Text>
+          <Text style={addDeviceStyles.OTPCode}>{otp}</Text>
         </View>
         <View style={addDeviceStyles.descriptionContainer}>
           <Text style={styles.description}>{ADD_DEVICE.DESCRIPTION}</Text>

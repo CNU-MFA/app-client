@@ -1,23 +1,42 @@
 import { View, Text, StyleSheet } from 'react-native'
 import { OTP_AUTHENTICATION } from '../constants/OTPAuthentication'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { styles } from '../assets/styles/index'
 import Header from '../components/common/Header'
 import { useState } from 'react'
 import Input from '../components/common/Input'
 import { NAVIGATION } from '../constants/navigation'
 import Button from '../components/common/Button'
+import API from '../api/API'
+import { ERROR } from '../constants/messages'
 
 const OTPAuthentication = () => {
-  const [inputOTP, setInputOTP] = useState('')
   const navigation = useNavigation()
+  const route = useRoute()
+
+  const [inputOTP, setInputOTP] = useState('')
+  const { id, password } = route.params?.state
 
   const onChangeText = (text) => {
     setInputOTP(text)
   }
 
-  const onPress = () => {
-    navigation.navigate(NAVIGATION.SUCCESS)
+  const isInputOTP = () => {
+    return inputOTP === ''
+  }
+
+  const handleSuccessfulVerifyOTPAuthentication = async () => {
+    if (res.ok) navigation.navigate(NAVIGATION.SUCCESS)
+  }
+
+  const onPress = async () => {
+    if (isInputOTP()) {
+      alert(ERROR.INPUT_OTP_ATHENTICATION_PROMPT_MESSAGE)
+      return
+    }
+    const res = await API.postVerifyOTPAuthentication(id, password, inputOTP)
+    handleSuccessfulVerifyOTPAuthentication(res)
+    alert(ERROR.INVALID_OTP_ATHENTICATION_PROMPT_MESSAGE)
   }
 
   return (
