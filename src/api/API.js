@@ -43,6 +43,9 @@ const API = {
       },
     })
   },
+  postBiometricAuthentication: async (id, password, success) => {
+    success
+  },
 }
 
 export default API

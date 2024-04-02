@@ -11,12 +11,12 @@ import { NAVIGATION } from '../constants/navigation'
 const Stack = createStackNavigator()
 
 const screenConfig = {
-  [NAVIGATION.LOGIN]: Home,
-  [NAVIGATION.ADD_DEVICE]: AddDevice,
-  [NAVIGATION.AUTHENTICATION]: Authentication,
-  [NAVIGATION.OTP_AUTHENTICATION]: OTPAuthentication,
+  // [NAVIGATION.LOGIN]: Home,
+  // [NAVIGATION.ADD_DEVICE]: AddDevice,
+  // [NAVIGATION.AUTHENTICATION]: Authentication,
+  // [NAVIGATION.OTP_AUTHENTICATION]: OTPAuthentication,
   [NAVIGATION.BIOMETRIC_AUTHENTICATION]: BiometricAuthentication,
-  [NAVIGATION.SUCCESS]: Success,
+  // [NAVIGATION.SUCCESS]: Success,
 }
 
 const StackNavigation = () => {
