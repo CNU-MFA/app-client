@@ -44,7 +44,15 @@ const API = {
     })
   },
   postBiometricAuthentication: async (id, password, success) => {
-    success
+    instance.post({
+      method: 'POST',
+      utl: '/biometric-authentication',
+      data: {
+        id,
+        password,
+        success,
+      },
+    })
   },
 }
 
