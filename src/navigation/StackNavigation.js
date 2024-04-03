@@ -1,7 +1,7 @@
+import { screenConfig } from '../config/screenConfig'
+import { NAVIGATION } from '../constants/navigation'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { screenConfig } from '../constants/screenConfig'
-import { NAVIGATION } from '../constants/navigation'
 
 const Stack = createStackNavigator()
 

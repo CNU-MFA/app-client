@@ -1,7 +1,7 @@
-import { useNavigation } from '@react-navigation/native'
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
-import { AntDesign, FontAwesome6, Feather } from '@expo/vector-icons'
 import { NAVIGATION } from '../constants/navigation'
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { AntDesign, FontAwesome6, Feather } from '@expo/vector-icons'
 
 const AuthenticationButton = ({ name, text, user, ...props }) => {
   const navigation = useNavigation()

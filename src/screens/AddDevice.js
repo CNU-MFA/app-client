@@ -1,14 +1,14 @@
+import { styles } from '../assets/styles'
+import { ADD_DEVICE } from '../constants/main'
+import { ERROR } from '../constants/messages'
+import { NAVIGATION } from '../constants/navigation'
 import { useEffect, useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
-import { ADD_DEVICE } from '../constants/main'
-import { generateOTPCode } from '../utils/generateOTPCode'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import { styles } from '../assets/styles'
+import { generateOTPCode } from '../utils/generateOTPCode'
 import Header from '../components/common/Header'
 import Button from '../components/common/Button'
-import { NAVIGATION } from '../constants/navigation'
 import API from '../api/API'
-import { ERROR } from '../constants/messages'
 
 const AddDevice = () => {
   const navigation = useNavigation()

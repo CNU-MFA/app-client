@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet } from 'react-native'
 import { SUCCESS } from '../constants/messages'
+import { NAVIGATION } from '../constants/navigation'
+import { View, Text, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Button from '../components/common/Button'
-import { NAVIGATION } from '../constants/navigation'
 
 const Success = () => {
   const navigation = useNavigation()

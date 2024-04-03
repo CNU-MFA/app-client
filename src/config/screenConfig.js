@@ -1,12 +1,11 @@
-import Home from '../screens/Home'
+import { NAVIGATION } from '../constants/navigation'
 import Splash from '../screens/Splash'
+import Home from '../screens/Home'
 import AddDevice from '../screens/AddDevice'
 import Authentication from '../screens/Authentication'
 import OTPAuthentication from '../screens/OTPAuthentication'
-import Success from '../screens/Success'
 import BiometricAuthentication from '../screens/BiometricAuthentication'
-
-import { NAVIGATION } from './navigation'
+import Success from '../screens/Success'
 
 export const screenConfig = {
   [NAVIGATION.SPLASH]: {

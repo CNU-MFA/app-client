@@ -1,14 +1,14 @@
+import { styles } from '../assets/styles'
+import { HOME } from '../constants/main'
+import { ERROR } from '../constants/messages'
+import { NAVIGATION } from '../constants/navigation'
+import { useState } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { HOME } from '../constants/main'
-import { useState } from 'react'
-import { styles } from '../assets/styles'
 import Input from '../components/common/Input'
-import { ERROR } from '../constants/messages'
 import Button from '../components/common/Button'
-import { NAVIGATION } from '../constants/navigation'
-import API from '../api/API'
 import Logo from '../assets/images/logo.png'
+import API from '../api/API'
 
 const Home = () => {
   const navigation = useNavigation()

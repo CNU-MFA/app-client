@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "779654528318",
+    "project_id": "cnu-mfa",
+    "storage_bucket": "cnu-mfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779654528318:android:7427e496b80a22cef6806f",
+        "android_client_info": {
+          "package_name": "com.chungdaein.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCscqXuiSchmXJJIl_FK16OqwTj3UBXt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

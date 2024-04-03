@@ -1,8 +1,8 @@
-import { View, StyleSheet, Image } from 'react-native'
-import Logo from '../assets/images/logo.png'
-import { useEffect } from 'react'
-import { useNavigation } from '@react-navigation/native'
 import { NAVIGATION } from '../constants/navigation'
+import { useEffect } from 'react'
+import { View, StyleSheet, Image } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import Logo from '../assets/images/logo.png'
 
 const TIME = 2000
 

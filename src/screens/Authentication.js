@@ -1,21 +1,10 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { styles } from '../assets/styles'
 import { AUTHENTICATION } from '../constants/main'
+import { authenticationConfig } from '../config/authenticationConfig'
+import { View, Text, StyleSheet } from 'react-native'
+import { useRoute } from '@react-navigation/native'
 import AuthenticationButton from '../components/AuthenticationButton'
 import Header from '../components/common/Header'
-import { styles } from '../assets/styles'
-import { NAVIGATION } from '../constants/navigation'
-import { useRoute } from '@react-navigation/native'
-
-const authenticationConfig = {
-  otpAuthentication: {
-    name: NAVIGATION.OTP_AUTHENTICATION,
-    text: AUTHENTICATION.OTP_AUTHENTICATION,
-  },
-  biometricAuthentication: {
-    name: NAVIGATION.BIOMETRIC_AUTHENTICATION,
-    text: AUTHENTICATION.BIOMETRIC_AUTHENTICATION,
-  },
-}
 
 const Authentication = () => {
   const route = useRoute()

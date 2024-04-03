@@ -1,4 +1,5 @@
 export const ERROR = Object.freeze({
+  NOTIFICATION_INVALID_PERMISSION: '알림 권한이 거부되었습니다.',
   LOGIN_PROMPT_MESSAGE: '모든 정보를 입력해주세요.',
   ADD_DEVICE_PROMPT_MESSAGE: '기기등록이 완료되지 않았습니다.',
   INPUT_OTP_ATHENTICATION_PROMPT_MESSAGE: 'OTP 코드를 입력해주세요.',
