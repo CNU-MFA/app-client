@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { HOME } from '../constants/home'
 import { useState } from 'react'
@@ -9,6 +9,7 @@ import Header from '../components/common/Header'
 import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'
 import API from '../api/API'
+import Logo from '../assets/images/logo.png'
 
 const Home = () => {
   const navigation = useNavigation()
@@ -52,7 +53,9 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Header text={HOME.TITLE} />
+      <View style={homeStyles.logoConatiner}>
+        <Image source={Logo} style={homeStyles.logo} />
+      </View>
       <View style={homeStyles.form}>
         <View style={homeStyles.inputForm}>
           <Input
@@ -80,6 +83,13 @@ const Home = () => {
 export default Home
 
 const homeStyles = StyleSheet.create({
+  logoConatiner: {
+    marginBottom: 50,
+  },
+  logo: {
+    width: 150,
+    height: 150,
+  },
   form: {
     flex: 7,
   },

@@ -15,7 +15,7 @@ const OTPAuthentication = () => {
   const route = useRoute()
 
   const [inputOTP, setInputOTP] = useState('')
-  const { id, password } = route.params?.state
+  // const { id, password } = route.params?.state
 
   const onChangeText = (text) => {
     setInputOTP(text)
