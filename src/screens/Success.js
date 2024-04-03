@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { SUCCESS } from '../constants/success'
+import { SUCCESS } from '../constants/messages'
 import { useNavigation } from '@react-navigation/native'
 import Button from '../components/common/Button'
 import { NAVIGATION } from '../constants/navigation'

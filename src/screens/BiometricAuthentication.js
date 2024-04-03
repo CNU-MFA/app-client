@@ -1,11 +1,10 @@
 import { View } from 'react-native'
-import { BIOMETRIC_AUTHENTICATION } from '../constants/biometricAuthentication'
+import { BIOMETRIC_AUTHENTICATION } from '../constants/main'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Header from '../components/common/Header'
 import { styles } from '../assets/styles/index'
 import * as LocalAuthentication from 'expo-local-authentication'
 import { useEffect } from 'react'
-import API from '../api/API'
 import { NAVIGATION } from '../constants/navigation'
 
 const BiometricAuthentication = () => {

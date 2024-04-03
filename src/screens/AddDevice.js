@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
-import { ADD_DEVICE } from '../constants/addDevice'
+import { ADD_DEVICE } from '../constants/main'
 import { generateOTPCode } from '../utils/generateOTPCode'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { styles } from '../assets/styles'

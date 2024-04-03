@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { OTP_AUTHENTICATION } from '../constants/OTPAuthentication'
+import { OTP_AUTHENTICATION } from '../constants/main'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { styles } from '../assets/styles/index'
 import Header from '../components/common/Header'

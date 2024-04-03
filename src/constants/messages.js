@@ -6,4 +6,7 @@ export const ERROR = Object.freeze({
     'OTP 코드를 잘못 입력하셨습니다. 다시 입력해주세요.',
 })
 
-export const SUCCESS = Object.freeze({})
+export const SUCCESS = Object.freeze({
+  DESCRIPTION: '인증이\n 완료되었습니다!',
+  SUBMIT: '완료',
+})

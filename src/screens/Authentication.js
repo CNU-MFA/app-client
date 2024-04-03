@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { AUTHENTICATION } from '../constants/authentication'
+import { AUTHENTICATION } from '../constants/main'
 import AuthenticationButton from '../components/AuthenticationButton'
 import Header from '../components/common/Header'
 import { styles } from '../assets/styles'

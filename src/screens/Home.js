@@ -1,6 +1,6 @@
 import { View, StyleSheet, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { HOME } from '../constants/home'
+import { HOME } from '../constants/main'
 import { useState } from 'react'
 import { styles } from '../assets/styles'
 import Input from '../components/common/Input'
