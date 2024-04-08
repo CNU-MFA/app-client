@@ -9,12 +9,14 @@ import { generateOTPCode } from '../utils/generateOTPCode'
 import Header from '../components/common/Header'
 import Button from '../components/common/Button'
 import API from '../api/API'
+import useExpoPushToken from '../hooks/useExpoPushToken'
 
 const AddDevice = () => {
   const navigation = useNavigation()
   const route = useRoute()
   const { id, password } = route.params?.state
   const [otp, setOtp] = useState('')
+  const expoPushToken = useExpoPushToken()
 
   const handleRequestSetOTP = async (otp) => {
     await API.postSetOTP(otp)
@@ -33,9 +35,11 @@ const AddDevice = () => {
     alert(ERROR.ADD_DEVICE_PROMPT_MESSAGE)
   }
 
-  const handleVerifyDeviceStatus = (res) => {
-    if (res.ok)
+  const handleVerifyDeviceStatus = async (res) => {
+    if (res.ok) {
+      await API.postSetExpoPushToken(expoPushToken)
       navigation.navigate(NAVIGATION.AUTHENTICATION, { state: { ...user } })
+    }
   }
 
   const onPress = async () => {

@@ -1,7 +1,6 @@
 import { ERROR } from '../constants/messages'
 import { useState, useEffect } from 'react'
 import * as Notifications from 'expo-notifications'
-import Constants from 'expo-constants'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -11,23 +10,15 @@ Notifications.setNotificationHandler({
   }),
 })
 
-const useExpoToken = () => {
-  const [expoToken, setExpoToken] = useState('')
-
-  const handleGetPushToken = async () =>
-    (
-      await Notifications.getExpoPushTokenAsync({
-        projectId: Constants.expoConfig.extra.eas.projectId,
-      })
-    ).data
+const usePermissionNotification = () => {
+  const [isPermission, setIsPermission] = useState(false)
 
   const handleSuccessfulPermission = async (status) => {
     if (status !== 'granted') {
       alert(ERROR.NOTIFICATION_INVALID_PERMISSION)
       return
     }
-    const token = await handleGetPushToken()
-    setExpoToken(token)
+    setIsPermission(true)
   }
 
   useEffect(() => {
@@ -39,7 +30,7 @@ const useExpoToken = () => {
     handlePermissionNotification()
   }, [])
 
-  return expoToken
+  return isPermission
 }
 
-export default useExpoToken
+export default usePermissionNotification

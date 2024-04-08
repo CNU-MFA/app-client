@@ -22,6 +22,17 @@ const API = {
       },
     })
   },
+  postSetExpoPushToken: async (id, password, expoPushToken) => {
+    instance.post({
+      method: 'POST',
+      url: '/set-expo-push-token',
+      data: {
+        id,
+        password,
+        expoPushToken,
+      },
+    })
+  },
   postVerifyDeviceStatus: async (id, password) => {
     instance.post({
       method: 'POST',
