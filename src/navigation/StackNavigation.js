@@ -1,5 +1,5 @@
-import { screenConfig } from '../config/screenConfig'
-import { NAVIGATION } from '../constants/navigation'
+import { screenConfig } from '../utils/constants/screenConfig'
+import { NAVIGATION } from '../utils/constants/navigation'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 

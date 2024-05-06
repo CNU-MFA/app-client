@@ -1,14 +1,14 @@
 import { styles } from '../assets/styles/index'
-import { OTP_AUTHENTICATION } from '../constants/main'
-import { NAVIGATION } from '../constants/navigation'
-import { ERROR } from '../constants/messages'
+import { OTP_AUTHENTICATION } from '../utils/constants/main'
+import { NAVIGATION } from '../utils/constants/navigation'
+import { ERROR } from '../utils/constants/messages'
 import { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Header from '../components/common/Header'
 import Input from '../components/common/Input'
 import Button from '../components/common/Button'
-import API from '../api/API'
+import API from '../apis/API'
 
 const OTPAuthentication = () => {
   const navigation = useNavigation()

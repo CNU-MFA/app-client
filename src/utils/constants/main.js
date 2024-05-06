@@ -1,4 +1,4 @@
-export const HOME = Object.freeze({
+export const LOGIN = Object.freeze({
   TITLE: `충남대학교 포털 \n2차 인증 서비스`,
   USER_ID: '학번 및 교직원 번호',
   USER_ID_PLACEHOLDER: '학번 및 교직원 번호를 입력해주세요.',
@@ -7,10 +7,18 @@ export const HOME = Object.freeze({
   SUBMIT: '로그인',
 })
 
-export const ADD_DEVICE = Object.freeze({
-  TITLE: '기기 등록',
-  DESCRIPTION: '위 OTP 코드를\n 웹 포털사이트에서 입력해주세요.',
-  SUBMIT: '확인',
+// export const ADD_DEVICE = Object.freeze({
+//   TITLE: '기기 등록',
+//   DESCRIPTION: '위 OTP 코드를\n 웹 포털사이트에서 입력해주세요.',
+//   SUBMIT: '확인',
+// })
+
+export const HOME = Object.freeze({
+  TITLE: '반갑습니다! 👋',
+  DESCRIPTION:
+    '\n2차 인증을 위해\n충남대학교 웹 포털에서\n로그인을 진행해주세요!',
+  AUTHENTICATION_DESCRIPTION: '충남대학교 웹 포털에서\n로그인을 시도하였습니다.\n2차 인증수단을 선택해주세요.',
+  SUBMIT: '2차 인증수단 선택하기'
 })
 
 export const AUTHENTICATION = Object.freeze({

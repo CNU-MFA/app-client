@@ -1,11 +1,11 @@
-import { NAVIGATION } from '../constants/navigation'
-import Splash from '../screens/Splash'
-import Home from '../screens/Home'
-import AddDevice from '../screens/AddDevice'
-import Authentication from '../screens/Authentication'
-import OTPAuthentication from '../screens/OTPAuthentication'
-import BiometricAuthentication from '../screens/BiometricAuthentication'
-import Success from '../screens/Success'
+import { NAVIGATION } from './navigation'
+import Splash from '../../screens/Splash'
+import Login from '../../screens/Login'
+import Home from '../../screens/Home'
+import Authentication from '../../screens/Authentication'
+import OTPAuthentication from '../../screens/OTPAuthentication'
+import BiometricAuthentication from '../../screens/BiometricAuthentication'
+import Success from '../../screens/Success'
 
 export const screenConfig = {
   [NAVIGATION.SPLASH]: {
@@ -13,11 +13,11 @@ export const screenConfig = {
     options: { headerShown: false },
   },
   [NAVIGATION.LOGIN]: {
-    component: Home,
+    component: Login,
     options: { headerShown: false },
   },
-  [NAVIGATION.ADD_DEVICE]: {
-    component: AddDevice,
+  [NAVIGATION.HOME]: {
+    component: Home,
     options: { headerShown: false },
   },
   [NAVIGATION.AUTHENTICATION]: {

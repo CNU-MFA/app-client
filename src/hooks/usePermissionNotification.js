@@ -1,4 +1,4 @@
-import { ERROR } from '../constants/messages'
+import { ERROR } from '../utils/constants/messages'
 import { useState, useEffect } from 'react'
 import * as Notifications from 'expo-notifications'
 

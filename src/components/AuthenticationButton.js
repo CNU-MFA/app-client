@@ -1,4 +1,4 @@
-import { NAVIGATION } from '../constants/navigation'
+import { NAVIGATION } from '../utils/constants/navigation'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign, FontAwesome6, Feather } from '@expo/vector-icons'

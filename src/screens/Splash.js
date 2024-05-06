@@ -1,4 +1,4 @@
-import { NAVIGATION } from '../constants/navigation'
+import { NAVIGATION } from '../utils/constants/navigation'
 import { useEffect } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'

@@ -1,82 +1,60 @@
-import { styles } from '../assets/styles'
-import { HOME } from '../constants/main'
-import { ERROR } from '../constants/messages'
-import { NAVIGATION } from '../constants/navigation'
-import { useState } from 'react'
-import { View, StyleSheet, Image } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import Input from '../components/common/Input'
-import Button from '../components/common/Button'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import Logo from '../assets/images/logo.png'
-import API from '../api/API'
+import { styles } from '../assets/styles'
+import { HOME } from '../utils/constants/main'
+import { useNavigation } from '@react-navigation/native'
+import Button from '../components/common/Button'
+import { useEffect, useState } from 'react'
+import { NAVIGATION } from '../utils/constants/navigation'
+
+/** TODO
+ *  - [] 인증 내역에 따른 setIsLogin 조작
+ */
+
+const GreetingView = () => {
+  return (
+    <View>
+      <Text style={homeStyles.title}>{HOME.TITLE}</Text>
+      <Text style={homeStyles.description}>{HOME.DESCRIPTION}</Text>
+    </View>
+  )
+}
+
+const AuthBanner = ({ onPress }) => {
+  return (
+    <View>
+      <Text style={homeStyles.description}>
+        {HOME.AUTHENTICATION_DESCRIPTION}
+      </Text>
+      <View style={homeStyles.btnContainer}>
+        <Button size={250} onPress={onPress} text={HOME.SUBMIT} />
+      </View>
+    </View>
+  )
+}
 
 const Home = () => {
   const navigation = useNavigation()
-  const [user, setUser] = useState({
-    id: '',
-    password: '',
-  })
+  const [isLogin, setIsLogin] = useState(false)
 
-  const onChangeUserId = (text) => {
-    setUser({ ...user, id: text })
+  useEffect(() => {
+    // 웹 포털 로그인 되어있는지 확인 => setIsLogin 조작
+  }, [])
+
+  const onPress = () => {
+    navigation.navigate(NAVIGATION.AUTHENTICATION)
   }
 
-  const onChangeUserPassword = (text) => {
-    setUser({ ...user, password: text })
-  }
-
-  const isInputValid = () => {
-    return user.id === '' || user.password === ''
-  }
-
-  const displayLoginPrompt = () => {
-    alert(ERROR.LOGIN_PROMPT_MESSAGE)
-  }
-
-  const handleSuccessfulLogin = (res) => {
-    if (res.ok && res.deviceState) {
-      navigation.navigate(NAVIGATION.AUTHENTICATION, { state: { ...user } })
-      return
-    }
-    navigation.navigate(NAVIGATION.ADD_DEVICE, { state: { ...user } })
-  }
-
-  const onPress = async () => {
-    if (isInputValid()) {
-      displayLoginPrompt()
-      return
-    }
-    const res = await API.postLogin(user.id, user.password)
-    handleSuccessfulLogin(res)
+  const renderIsLoginBanner = () => {
+    return isLogin ? <AuthBanner onPress={onPress} /> : <GreetingView />
   }
 
   return (
     <View style={styles.container}>
-      <View style={homeStyles.innerContainer}>
-        <View style={homeStyles.logoContainer}>
-          <Image source={Logo} style={homeStyles.logo} />
-        </View>
-        <View style={homeStyles.form}>
-          <View style={homeStyles.inputForm}>
-            <Input
-              label={HOME.USER_ID}
-              placeholder={HOME.USER_ID_PLACEHOLDER}
-              value={user.id}
-              onChangeText={onChangeUserId}
-            />
-          </View>
-          <View style={homeStyles.inputForm}>
-            <Input
-              label={HOME.PASSWORD}
-              secureTextEntry
-              onChangeText={onChangeUserPassword}
-              value={user.password}
-              placeholder={HOME.PASSWORD_PLACEHOLDER}
-            />
-          </View>
-          <Button size={122} onPress={onPress} text={HOME.SUBMIT} />
-        </View>
+      <View style={homeStyles.logoContainer}>
+        <Image source={Logo} style={homeStyles.logo} />
       </View>
+      <View style={homeStyles.bannerContainer}>{renderIsLoginBanner()}</View>
     </View>
   )
 }
@@ -93,13 +71,25 @@ const homeStyles = StyleSheet.create({
     width: 150,
     height: 150,
   },
-  innerContainer: {
-    marginTop: 100,
+  bannerContainer: {
+    flex: 3,
   },
-  form: {
-    flex: 8,
+  title: {
+    marginTop: 24,
+    fontSize: 36,
+    marginBottom: 12,
+    fontWeight: '700',
+    textAlign: 'center',
+    color: 'rgb(52, 152, 219)',
   },
-  inputForm: {
-    marginBottom: 34,
+  description: {
+    fontSize: 24,
+    fontWeight: '700',
+    textAlign: 'center',
+    lineHeight: 42,
+    color: 'rgb(52, 152, 219)',
+  },
+  btnContainer: {
+    marginTop: 24,
   },
 })
