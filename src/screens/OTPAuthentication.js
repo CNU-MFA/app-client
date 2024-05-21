@@ -34,7 +34,7 @@ const OTPAuthentication = () => {
       alert(ERROR.INPUT_OTP_ATHENTICATION_PROMPT_MESSAGE)
       return
     }
-    const res = await API.postVerifyOTPAuthentication(id, password, inputOTP)
+    const res = await API.postAuthOTP(inputOTP)
     handleSuccessfulVerifyOTPAuthentication(res)
     alert(ERROR.INVALID_OTP_ATHENTICATION_PROMPT_MESSAGE)
   }

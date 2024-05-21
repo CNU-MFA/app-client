@@ -4,7 +4,7 @@ const API = {
   postLogin: async (id, password) => {
     instance.post({
       method: 'POST',
-      url: '/login',
+      url: '/mobile/auth/login',
       data: {
         id,
         password,
@@ -12,57 +12,27 @@ const API = {
       },
     })
   },
-  // postSetOTP: async (id, password, otp) => {
-  //   instance.post({
-  //     method: 'POST',
-  //     url: '/set-device-otp',
-  //     data: {
-  //       id,
-  //       password,
-  //       otp,
-  //     },
-  //   })
-  // },
-  // postSetExpoPushToken: async (id, password, expoPushToken) => {
-  //   instance.post({
-  //     method: 'POST',
-  //     url: '/set-expo-push-token',
-  //     data: {
-  //       id,
-  //       password,
-  //       expoPushToken,
-  //     },
-  //   })
-  // },
-  // postVerifyDeviceStatus: async (id, password) => {
-  //   instance.post({
-  //     method: 'POST',
-  //     url: '/verify-device-status',
-  //     data: {
-  //       id,
-  //       password,
-  //     },
-  //   })
-  // },
-  postVerifyOTPAuthentication: async (id, password, inputOtp) => {
+  getHistory: async () => {
+    instance.get({
+      method: 'GET',
+      url: '/mobile/auth/request-history',
+    })
+  },
+  postAuthOTP: async () => {
     instance.post({
       method: 'POST',
-      url: '/verify-otp-authentication',
+      url: '/mobile/auth/otp',
       data: {
-        id,
-        password,
-        inputOtp,
+        otp,
       },
     })
   },
-  postBiometricAuthentication: async (id, password, success) => {
+  postAuthBiometric: async () => {
     instance.post({
       method: 'POST',
-      utl: '/biometric-authentication',
+      utl: '/mobile/auth/request-history',
       data: {
-        id,
-        password,
-        success,
+        ok,
       },
     })
   },

@@ -36,7 +36,8 @@ const Login = () => {
   }
 
   const handleSuccessfulLogin = (res) => {
-    if (res.ok && res.deviceState) {
+    if (res.ok) {
+      // 사용자가 있으면 Home으로 이동
       navigation.navigate(NAVIGATION.HOME, { state: { ...user } })
       return
     }
@@ -45,14 +46,14 @@ const Login = () => {
   }
 
   const onPress = async () => {
-    // 아이디, 패스워드, 엑스포 토큰 전송
-    console.log(expoPushToken.data)
+    // 유효성 검사 진행
     if (isInputValid()) {
       displayLoginPrompt()
       return
     }
-    // const res = await API.postLogin(user.id, user.password, expoPushToken)
-    // handleSuccessfulLogin(res)
+    // 아이디, 패스워드, 엑스포 토큰 전송
+    const res = await API.postLogin(user.id, user.password, expoPushToken.data)
+    handleSuccessfulLogin(res)
   }
 
   return (

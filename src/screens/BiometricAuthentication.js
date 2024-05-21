@@ -9,17 +9,15 @@ import * as LocalAuthentication from 'expo-local-authentication'
 
 const BiometricAuthentication = () => {
   const navigation = useNavigation()
-  const route = useRoute()
-
-  const { id, password } = useRoute()
+  // const route = useRoute()
+  // const { id, password } = useRoute()
 
   useEffect(() => {
     const authenticate = async () => {
       try {
         const res = await LocalAuthentication.authenticateAsync()
-        console.log(res.success)
-        // if (res.success) await API.postBiometricAuthentication(id, password, res.success)
-        // navigation.navigate(NAVIGATION.SUCCESS)
+        if (res.success) await API.postAuthBiometric(res.success)
+        navigation.navigate(NAVIGATION.SUCCESS)
       } catch (err) {
         console.log(err)
       }

@@ -6,10 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 import Button from '../components/common/Button'
 import { useEffect, useState } from 'react'
 import { NAVIGATION } from '../utils/constants/navigation'
-
-/** TODO
- *  - [] 인증 내역에 따른 setIsLogin 조작
- */
+import API from '../apis/API'
 
 const GreetingView = () => {
   return (
@@ -38,7 +35,11 @@ const Home = () => {
   const [isLogin, setIsLogin] = useState(false)
 
   useEffect(() => {
-    // 웹 포털 로그인 되어있는지 확인 => setIsLogin 조작
+    const handleRequestHistory = async () => {
+      const res = await API.getHistory()
+      setIsLogin(res.ok)
+    }
+    handleRequestHistory()
   }, [])
 
   const onPress = () => {
