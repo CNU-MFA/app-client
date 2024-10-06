@@ -1,5 +1,4 @@
 import { styles } from '../assets/styles/index'
-import { BIOMETRIC_AUTHENTICATION } from '../utils/constants/main'
 import { NAVIGATION } from '../utils/constants/navigation'
 import { useEffect } from 'react'
 import { View } from 'react-native'
@@ -9,15 +8,22 @@ import * as LocalAuthentication from 'expo-local-authentication'
 
 const BiometricAuthentication = () => {
   const navigation = useNavigation()
-  // const route = useRoute()
-  // const { id, password } = useRoute()
+  const route = useRoute()
+  const user = route.params?.state
 
   useEffect(() => {
     const authenticate = async () => {
       try {
         const res = await LocalAuthentication.authenticateAsync()
-        if (res.success) await API.postAuthBiometric(res.success)
-        navigation.navigate(NAVIGATION.SUCCESS)
+        if (res.success) {
+          const { isOk } = await API.postAuthBiometric(
+            user.id,
+            user.password,
+            res.success,
+          )
+          
+          if (isOk) navigation.navigate(NAVIGATION.SUCCESS)
+        }
       } catch (err) {
         console.log(err)
       }
@@ -27,7 +33,7 @@ const BiometricAuthentication = () => {
 
   return (
     <View style={styles.container}>
-      <Header text={BIOMETRIC_AUTHENTICATION.TITLE} />
+      <Header text="생체 인증" />
     </View>
   )
 }

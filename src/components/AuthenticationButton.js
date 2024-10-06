@@ -7,7 +7,7 @@ const AuthenticationButton = ({ name, text, user, ...props }) => {
   const navigation = useNavigation()
 
   const navigateScreenHandler = () => {
-    navigation.navigate(name, { state: { ...user } })
+    navigation.navigate(name, { state: { user } })
   }
 
   return (

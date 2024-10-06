@@ -1,7 +1,7 @@
 import instance from './core'
 
 const API = {
-  postLogin: async (id, password) => {
+  postLogin: async (id, password, token) => {
     instance.post({
       method: 'POST',
       url: '/mobile/auth/login',
@@ -12,27 +12,31 @@ const API = {
       },
     })
   },
-  getHistory: async () => {
-    instance.get({
-      method: 'GET',
-      url: '/mobile/auth/request-history',
-    })
-  },
-  postAuthOTP: async () => {
+  // getHistory: async () => {
+  //   instance.get({
+  //     method: 'GET',
+  //     url: '/mobile/auth/request-history',
+  //   })
+  // },
+  postAuthOTP: async (id, password, otp) => {
     instance.post({
       method: 'POST',
       url: '/mobile/auth/otp',
       data: {
+        id,
+        password,
         otp,
       },
     })
   },
-  postAuthBiometric: async () => {
+  postAuthBiometric: async (id, password, success) => {
     instance.post({
       method: 'POST',
-      utl: '/mobile/auth/request-history',
+      utl: '/mobile/auth/biometric',
       data: {
-        ok,
+        id,
+        password,
+        success,
       },
     })
   },

@@ -2,8 +2,8 @@ export const ERROR = Object.freeze({
   NOTIFICATION_INVALID_PERMISSION: '알림 권한이 거부되었습니다.',
   LOGIN_PROMPT_MESSAGE: '모든 정보를 입력해주세요.',
   LOGIN_FAILURE_MESSAGE: '아이디, 비밀번호를 다시 입력해주세요.',
-  INPUT_OTP_ATHENTICATION_PROMPT_MESSAGE: 'OTP 코드를 입력해주세요.',
-  INVALID_OTP_ATHENTICATION_PROMPT_MESSAGE:
+  INPUT_OTP_AUTHENTICATION_PROMPT_MESSAGE: 'OTP 코드를 입력해주세요.',
+  INVALID_OTP_AUTHENTICATION_PROMPT_MESSAGE:
     'OTP 코드를 잘못 입력하셨습니다. 다시 입력해주세요.',
 })
 

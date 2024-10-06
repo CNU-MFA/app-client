@@ -1,5 +1,4 @@
 import { styles } from '../assets/styles/index'
-import { OTP_AUTHENTICATION } from '../utils/constants/main'
 import { NAVIGATION } from '../utils/constants/navigation'
 import { ERROR } from '../utils/constants/messages'
 import { useState } from 'react'
@@ -13,9 +12,9 @@ import API from '../apis/API'
 const OTPAuthentication = () => {
   const navigation = useNavigation()
   const route = useRoute()
+  const user = route.params?.state
 
   const [inputOTP, setInputOTP] = useState('')
-  // const { id, password } = route.params?.state
 
   const onChangeText = (text) => {
     setInputOTP(text)
@@ -25,39 +24,38 @@ const OTPAuthentication = () => {
     return inputOTP === ''
   }
 
-  const handleSuccessfulVerifyOTPAuthentication = async () => {
-    if (res.ok) navigation.navigate(NAVIGATION.SUCCESS)
+  const handleVerifyOTPAuthentication = async () => {
+    const { isOk } = await API.postAuthOTP(user.id, user.password, inputOTP)
+    
+    if (isOk) return navigation.navigate(NAVIGATION.SUCCESS)
+    return alert(ERROR.INVALID_OTP_AUTHENTICATION_PROMPT_MESSAGE)
   }
 
   const onPress = async () => {
     if (isInputOTP()) {
-      alert(ERROR.INPUT_OTP_ATHENTICATION_PROMPT_MESSAGE)
+      alert(ERROR.INPUT_OTP_AUTHENTICATION_PROMPT_MESSAGE)
       return
     }
-    const res = await API.postAuthOTP(inputOTP)
-    handleSuccessfulVerifyOTPAuthentication(res)
-    alert(ERROR.INVALID_OTP_ATHENTICATION_PROMPT_MESSAGE)
+    await handleVerifyOTPAuthentication()
   }
 
   return (
     <View style={styles.container}>
-      <Header text={OTP_AUTHENTICATION.TITLE} />
+      <Header text="OTP 인증" />
       <View style={styles.innerContainer}>
-        <Text style={styles.description}>{OTP_AUTHENTICATION.DESCRIPTION}</Text>
+        <Text style={styles.description}>
+          웹에서 제공한 OTP를 입력해주세요.
+        </Text>
         <View style={OTPAuthenticationStyles.container}>
           <View style={OTPAuthenticationStyles.inputContainer}>
             <Input
               keyboardType="number-pad"
               onChangeText={onChangeText}
               value={inputOTP}
-              placeholder={OTP_AUTHENTICATION.OTP_PLACEHOLDER}
+              placeholder="OTP를 입력해주세요."
             />
           </View>
-          <Button
-            size={100}
-            onPress={onPress}
-            text={OTP_AUTHENTICATION.SUBMIT}
-          />
+          <Button size={100} onPress={onPress} text="확인" />
         </View>
       </View>
     </View>

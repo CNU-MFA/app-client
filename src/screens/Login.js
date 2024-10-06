@@ -1,5 +1,4 @@
 import { styles } from '../assets/styles'
-import { LOGIN } from '../utils/constants/main'
 import { ERROR } from '../utils/constants/messages'
 import { NAVIGATION } from '../utils/constants/navigation'
 import { useState } from 'react'
@@ -35,25 +34,24 @@ const Login = () => {
     alert(ERROR.LOGIN_PROMPT_MESSAGE)
   }
 
-  const handleSuccessfulLogin = (res) => {
-    if (res.ok) {
-      // 사용자가 있으면 Home으로 이동
-      navigation.navigate(NAVIGATION.HOME, { state: { ...user } })
+  const handleLogin = async (token) => {
+    const res = await API.postLogin(user.id, user.password, token)
+    const { isOk } = res
+
+    if (isOk) {
+      navigation.navigate(NAVIGATION.HOME, { state: { user } })
       return
     }
-    // 사용자가 없으면 실패 알림
+
     alert(ERROR.LOGIN_FAILURE_MESSAGE)
   }
 
   const onPress = async () => {
-    // 유효성 검사 진행
     if (isInputValid()) {
       displayLoginPrompt()
       return
     }
-    // 아이디, 패스워드, 엑스포 토큰 전송
-    const res = await API.postLogin(user.id, user.password, expoPushToken.data)
-    handleSuccessfulLogin(res)
+    await handleLogin(expoPushToken.data)
   }
 
   return (
@@ -65,22 +63,22 @@ const Login = () => {
         <View style={loginStyles.form}>
           <View style={loginStyles.inputForm}>
             <Input
-              label={LOGIN.USER_ID}
-              placeholder={LOGIN.USER_ID_PLACEHOLDER}
+              label="학번 및 교직원 번호"
+              placeholder="학번 및 교직원 번호를 입력해주세요."
               value={user.id}
               onChangeText={onChangeUserId}
             />
           </View>
           <View style={loginStyles.inputForm}>
             <Input
-              label={LOGIN.PASSWORD}
+              label="비밀번호"
               secureTextEntry
               onChangeText={onChangeUserPassword}
               value={user.password}
-              placeholder={LOGIN.PASSWORD_PLACEHOLDER}
+              placeholder="비밀번호를 입력해주세요."
             />
           </View>
-          <Button size={122} onPress={onPress} text={LOGIN.SUBMIT} />
+          <Button size={122} onPress={onPress} text="로그인" />
         </View>
       </View>
     </View>
