@@ -35,8 +35,8 @@ import * as Notifications from 'expo-notifications'
 
 const Home = () => {
   const navigation = useNavigation()
-  const route = useRoute()
-  const user = route.params?.state
+  // const route = useRoute()
+  // const user = route.params?.state
 
   // 임시 알림 가기! 나중에 알림 올때 사용할 거니까 확인!
   async function schedulePushNotification() {

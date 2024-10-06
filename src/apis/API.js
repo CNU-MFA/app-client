@@ -1,10 +1,13 @@
 import axios from 'axios'
+import getEnvVars from '../../environment'
+
+const { apiUrl } = getEnvVars()
 
 const API = {
   postLogin: async (id, password, token) => {
     try {
       const response = await axios.post(
-        'http://localhost:8080/mobile/auth/login',
+        `${apiUrl}/mobile/auth/login`,
         {
           id,
           password,
@@ -25,7 +28,7 @@ const API = {
   postAuthOTP: async (id, password, otp) => {
     try {
       const response = await axios.post(
-        'http://localhost:8080/web/auth/otp',
+        `${apiUrl}/mobile/auth/otp`,
         {
           id,
           password,
@@ -46,7 +49,7 @@ const API = {
   postAuthBiometric: async (id, password, success) => {
     try {
       const response = await axios.post(
-        'http://localhost:8080/web/auth/login',
+        `${apiUrl}/mobile/auth/login`,
         {
           id,
           password,
