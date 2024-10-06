@@ -2,40 +2,67 @@ import axios from 'axios'
 
 const API = {
   postLogin: async (id, password, token) => {
-    axios.post('http://localhost:8080/mobile/auth/login', {
-      method: 'POST',
-      data: {
-        id,
-        password,
-        token,
-      },
-    })
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/mobile/auth/login',
+        {
+          id,
+          password,
+          token,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      return response
+    } catch (error) {
+      console.error('Login failed:', error)
+      throw error
+    }
   },
-  // getHistory: async () => {
-  //   instance.get({
-  //     method: 'GET',
-  //     url: '/mobile/auth/request-history',
-  //   })
-  // },
   postAuthOTP: async (id, password, otp) => {
-    axios.post('http://localhost:8080/mobile/auth/otp', {
-      method: 'POST',
-      data: {
-        id,
-        password,
-        otp,
-      },
-    })
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/web/auth/otp',
+        {
+          id,
+          password,
+          otp,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      return response
+    } catch (error) {
+      console.error('Login failed:', error)
+      throw error
+    }
   },
   postAuthBiometric: async (id, password, success) => {
-    axios.post('http://localhost:8080/mobile/auth/biometric',{
-      method: 'POST',
-      data: {
-        id,
-        password,
-        success,
-      },
-    })
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/web/auth/login',
+        {
+          id,
+          password,
+          success,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      return response
+    } catch (error) {
+      console.error('Login failed:', error)
+      throw error
+    }
   },
 }
 

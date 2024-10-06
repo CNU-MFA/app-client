@@ -25,9 +25,11 @@ const OTPAuthentication = () => {
   }
 
   const handleVerifyOTPAuthentication = async () => {
-    const { isOk } = await API.postAuthOTP(user.id, user.password, inputOTP)
-    
-    if (isOk) return navigation.navigate(NAVIGATION.SUCCESS)
+    const res = await API.postAuthOTP(user.id, user.password, inputOTP)
+    const status = res.status
+
+    if (status === 200) return navigation.navigate(NAVIGATION.SUCCESS)
+
     return alert(ERROR.INVALID_OTP_AUTHENTICATION_PROMPT_MESSAGE)
   }
 

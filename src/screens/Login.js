@@ -36,9 +36,9 @@ const Login = () => {
 
   const handleLogin = async (token) => {
     const res = await API.postLogin(user.id, user.password, token)
-    const { isOk } = res
+    const status = res.status
 
-    if (isOk) {
+    if (status === 200) {
       navigation.navigate(NAVIGATION.HOME, { state: { user } })
       return
     }

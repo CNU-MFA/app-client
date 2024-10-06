@@ -16,13 +16,14 @@ const BiometricAuthentication = () => {
       try {
         const res = await LocalAuthentication.authenticateAsync()
         if (res.success) {
-          const { isOk } = await API.postAuthBiometric(
+          const res = await API.postAuthBiometric(
             user.id,
             user.password,
             res.success,
           )
+          const status = res.status
           
-          if (isOk) navigation.navigate(NAVIGATION.SUCCESS)
+          if (status === 200) navigation.navigate(NAVIGATION.SUCCESS)
         }
       } catch (err) {
         console.log(err)
