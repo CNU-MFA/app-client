@@ -1,10 +1,9 @@
-import instance from './core'
+import axios from 'axios'
 
 const API = {
   postLogin: async (id, password, token) => {
-    instance.post({
+    axios.post('http://localhost:8080/mobile/auth/login', {
       method: 'POST',
-      url: '/mobile/auth/login',
       data: {
         id,
         password,
@@ -19,9 +18,8 @@ const API = {
   //   })
   // },
   postAuthOTP: async (id, password, otp) => {
-    instance.post({
+    axios.post('http://localhost:8080/mobile/auth/otp', {
       method: 'POST',
-      url: '/mobile/auth/otp',
       data: {
         id,
         password,
@@ -30,9 +28,8 @@ const API = {
     })
   },
   postAuthBiometric: async (id, password, success) => {
-    instance.post({
+    axios.post('http://localhost:8080/mobile/auth/biometric',{
       method: 'POST',
-      utl: '/mobile/auth/biometric',
       data: {
         id,
         password,
