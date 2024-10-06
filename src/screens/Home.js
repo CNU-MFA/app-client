@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import Logo from '../assets/images/logo.png'
 import { styles } from '../assets/styles'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { useEffect } from 'react'
 import { NAVIGATION } from '../utils/constants/navigation'
-// import API from '../apis/API'
 import * as Notifications from 'expo-notifications'
 
 // const GreetingView = () => {
@@ -35,8 +34,8 @@ import * as Notifications from 'expo-notifications'
 
 const Home = () => {
   const navigation = useNavigation()
-  // const route = useRoute()
-  // const user = route.params?.state
+  const route = useRoute()
+  const { user } = route.params
 
   // 임시 알림 가기! 나중에 알림 올때 사용할 거니까 확인!
   async function schedulePushNotification() {
@@ -57,7 +56,9 @@ const Home = () => {
       (response) => {
         const url = response.notification.request.content.data.url
         if (url) {
-          navigation.navigate(NAVIGATION.AUTHENTICATION, { state: { user } })
+          navigation.navigate(NAVIGATION.AUTHENTICATION, {
+            user: { id: user.id, password: user.password },
+          })
         }
       },
     )

@@ -18,7 +18,7 @@ const authenticationConfig = {
 
 const Authentication = () => {
   const route = useRoute()
-  const user = route.params?.state
+  const { user } = route.params
 
   return (
     <View style={styles.container}>

@@ -12,7 +12,7 @@ import API from '../apis/API'
 const OTPAuthentication = () => {
   const navigation = useNavigation()
   const route = useRoute()
-  const user = route.params?.state
+  const { user } = route.params
 
   const [inputOTP, setInputOTP] = useState('')
 
@@ -28,7 +28,11 @@ const OTPAuthentication = () => {
     const res = await API.postAuthOTP(user.id, user.password, inputOTP)
     const status = res.status
 
-    if (status === 200) return navigation.navigate(NAVIGATION.SUCCESS)
+    console.log(status)
+    if (status === 200)
+      return navigation.navigate(NAVIGATION.SUCCESS, {
+        user: { id: user.id, password: user.password },
+      })
 
     return alert(ERROR.INVALID_OTP_AUTHENTICATION_PROMPT_MESSAGE)
   }

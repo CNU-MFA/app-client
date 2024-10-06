@@ -1,14 +1,18 @@
 import { SUCCESS } from '../utils/constants/messages'
 import { NAVIGATION } from '../utils/constants/navigation'
 import { View, Text, StyleSheet } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import Button from '../components/common/Button'
 
 const Success = () => {
   const navigation = useNavigation()
+  const route = useRoute()
+  const { user } = route.params
 
   const onPress = () => {
-    navigation.navigate(NAVIGATION.AUTHENTICATION)
+    navigation.navigate(NAVIGATION.AUTHENTICATION, {
+      user: { id: user.id, password: user.password },
+    })
   }
 
   return (
