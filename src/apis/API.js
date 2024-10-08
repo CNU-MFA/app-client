@@ -1,5 +1,6 @@
 import axios from 'axios'
 import getEnvVars from '../../environment'
+import { ERROR } from '../utils/constants/messages'
 const { apiUrl } = getEnvVars()
 
 const API = {
@@ -20,14 +21,13 @@ const API = {
       )
       return response
     } catch (error) {
-      console.error('Login failed:', error)
-      throw error
+      alert(ERROR.LOGIN_FAILURE_MESSAGE)
     }
   },
   postAuthOTP: async (id, password, otp) => {
     try {
       const response = await axios.post(
-        `${apiUrl}/mobile/auth/otp`,
+        `${apiUrl}/mobile/auth/OTP`,
         {
           id,
           password,
@@ -41,14 +41,13 @@ const API = {
       )
       return response
     } catch (error) {
-      console.error('Login failed:', error)
-      throw error
+      alert(ERROR.INVALID_OTP_AUTHENTICATION_PROMPT_MESSAGE)
     }
   },
   postAuthBiometric: async (id, password, success) => {
     try {
       const response = await axios.post(
-        `${apiUrl}/mobile/auth/login`,
+        `${apiUrl}/mobile/auth/biometric`,
         {
           id,
           password,
@@ -62,8 +61,7 @@ const API = {
       )
       return response
     } catch (error) {
-      console.error('Login failed:', error)
-      throw error
+      alert(ERROR.INVALID_BIOMETRIC_AUTHENTICATION_PROMPT_MESSAGE)
     }
   },
 }

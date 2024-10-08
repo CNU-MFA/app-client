@@ -5,6 +5,8 @@ export const ERROR = Object.freeze({
   INPUT_OTP_AUTHENTICATION_PROMPT_MESSAGE: 'OTP 코드를 입력해주세요.',
   INVALID_OTP_AUTHENTICATION_PROMPT_MESSAGE:
     'OTP 코드를 잘못 입력하셨습니다. 다시 입력해주세요.',
+  INVALID_BIOMETRIC_AUTHENTICATION_PROMPT_MESSAGE:
+    '생체 인식을 다시 시도해주세요.',
 })
 
 export const SUCCESS = Object.freeze({

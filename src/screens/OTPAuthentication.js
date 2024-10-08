@@ -28,13 +28,11 @@ const OTPAuthentication = () => {
     const res = await API.postAuthOTP(user.id, user.password, inputOTP)
     const status = res.status
 
-    console.log(status)
-    if (status === 200)
-      return navigation.navigate(NAVIGATION.SUCCESS, {
+    if (status === 200) {
+      navigation.navigate(NAVIGATION.SUCCESS, {
         user: { id: user.id, password: user.password },
       })
-
-    return alert(ERROR.INVALID_OTP_AUTHENTICATION_PROMPT_MESSAGE)
+    }
   }
 
   const onPress = async () => {

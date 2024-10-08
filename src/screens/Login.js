@@ -37,16 +37,11 @@ const Login = () => {
   const handleLogin = async (token) => {
     const res = await API.postLogin(user.id, user.password, token)
     const status = res.status
-    
-
     if (status === 200) {
       navigation.navigate(NAVIGATION.HOME, {
         user: { id: user.id, password: user.password },
       })
-      return
     }
-
-    alert(ERROR.LOGIN_FAILURE_MESSAGE)
   }
 
   const onPress = async () => {
